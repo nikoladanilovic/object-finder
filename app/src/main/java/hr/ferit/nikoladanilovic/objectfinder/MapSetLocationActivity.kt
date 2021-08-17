@@ -1,7 +1,9 @@
 package hr.ferit.nikoladanilovic.objectfinder
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -11,21 +13,36 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import hr.ferit.nikoladanilovic.objectfinder.databinding.ActivityMapSetLocationBinding
 
-class MapSetLocationActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapSetLocationActivity : AppCompatActivity(), GoogleMap.OnMapClickListener, OnMapReadyCallback {
 
+    private val TAG = "MapSetLocationActivity"
+    
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapSetLocationBinding
+    private lateinit var chosenPoint: LatLng
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMapSetLocationBinding.inflate(layoutInflater)
+        binding.confirmLocationBtn.setOnClickListener { confirmLocation() }
         setContentView(binding.root)
+
+        chosenPoint = LatLng(-34.0, 151.0)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+    }
+
+    private fun confirmLocation() {
+        val latLongArray = doubleArrayOf(chosenPoint.latitude, chosenPoint.longitude)
+
+        val intentt = Intent(this, NewLocationActivity::class.java)
+        intentt.putExtra("COORDINATES_ID", latLongArray)
+        startActivity(intentt)
+        finish()        //PROVJERIII
     }
 
     /**
@@ -44,5 +61,17 @@ class MapSetLocationActivity : AppCompatActivity(), OnMapReadyCallback {
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        mMap.setOnMapClickListener(this)
     }
+
+    override fun onMapClick(p0: LatLng) {
+        Log.d(TAG, "onMapClick: tapped, point=$p0")
+        chosenPoint = p0
+
+        mMap.clear()
+        val tappedPlace = LatLng(p0.latitude, p0.longitude)
+        mMap.addMarker(MarkerOptions().position(tappedPlace).title("Location of potential objects"))
+    }
+
 }

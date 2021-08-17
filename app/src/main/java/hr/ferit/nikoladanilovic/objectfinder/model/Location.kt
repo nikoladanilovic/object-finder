@@ -5,7 +5,8 @@ import com.google.firebase.firestore.Exclude
 data class Location(
     private var documentId: String = "",
     private var name: String = "",
-    private var coordinates: String = ""
+    private var latitude: Double = 0.0,
+    private var longitude: Double = 0.0
 ) {
     @Exclude
     fun getDocumentId() : String {
@@ -24,11 +25,19 @@ data class Location(
         this.name = name
     }
 
-    fun getCoordinates() : String {
-        return coordinates
+    fun getLatitude() : Double {
+        return latitude
     }
 
-    fun setCoordinates(coordinates: String) {
-        this.coordinates = coordinates
+    fun setLatitude(latitude: Double) {
+        this.latitude = latitude
+    }
+
+    fun getLongitude() : Double {
+        return longitude
+    }
+
+    fun setLongitude(longitude: Double) {
+        this.longitude = longitude
     }
 }

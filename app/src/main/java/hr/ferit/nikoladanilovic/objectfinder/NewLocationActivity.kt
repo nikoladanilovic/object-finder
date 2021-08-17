@@ -20,6 +20,8 @@ class NewLocationActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
+    //private lateinit var extras: Bundle
+
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val usersRef : CollectionReference = db.collection("Users")
 
@@ -66,11 +68,16 @@ class NewLocationActivity : AppCompatActivity() {
             //user not null, user is logged int
             val email = firebaseUser.email
             val locationName = binding.locNameEt.text.toString()
-            val locationCoordinates = binding.coordinatesEt.text.toString()
 
-            val locationData = Location("", locationName, locationCoordinates)
+            var coordinatesArray = doubleArrayOf(0.0, 0.0)
 
-            if(locationName != "" && locationCoordinates != "") {
+            if(intent.getDoubleArrayExtra("COORDINATES_ID") != null){
+                coordinatesArray = intent.getDoubleArrayExtra("COORDINATES_ID")!!
+            }
+
+            val locationData = Location("", locationName, coordinatesArray[0], coordinatesArray[1])
+
+            if(locationName != "" && coordinatesArray[0] != 0.0 && coordinatesArray[1] != 0.0) {
                 usersRef.whereEqualTo("email", email).get()
                     .addOnSuccessListener { result ->
                         for (document in result) {
