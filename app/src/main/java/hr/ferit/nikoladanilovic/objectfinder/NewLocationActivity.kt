@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,6 +28,7 @@ class NewLocationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNewLocationBinding.inflate(layoutInflater)
         binding.CreateLocBtn.setOnClickListener { addLocation() }
+        binding.openMapBtn.setOnClickListener { openMap() }
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
@@ -34,6 +36,10 @@ class NewLocationActivity : AppCompatActivity() {
 
 
         setContentView(binding.root)
+    }
+
+    private fun openMap() {
+        startActivity(Intent(this, MapSetLocationActivity::class.java))
     }
 
     private fun checkUser() {
