@@ -2,4 +2,5 @@
     <string name="app_name">Object Finder</string>
     <string name="noAccountLabel">You are not signed up? Sign up <b>here</b>!</string>
     <string name="title_activity_map_set_location">Map</string>
+    <string name="title_activity_show_location_on_map">Map</string>
 </resources>

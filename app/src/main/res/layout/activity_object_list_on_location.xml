@@ -16,4 +16,14 @@
         android:text="go back to locations list"
         />
 
+    <Button
+        android:id="@+id/showLocationOnMapBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backToLocationsListBtn"
+        android:layout_margin="20dp"
+        android:text="show location on map"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

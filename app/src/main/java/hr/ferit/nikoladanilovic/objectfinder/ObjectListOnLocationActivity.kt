@@ -16,10 +16,13 @@ class ObjectListOnLocationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityObjectListOnLocationBinding.inflate(layoutInflater)
         binding.backToLocationsListBtn.setOnClickListener { backToLocationsList() }
-
-        Log.d(TAG, "onCreate: ${intent.getStringExtra("ACCESSED_LOCATION")}")
+        binding.showLocationOnMapBtn.setOnClickListener { showLocOnMap() }
 
         setContentView(binding.root)
+    }
+
+    private fun showLocOnMap() {
+        startActivity(Intent(this, ShowLocationOnMapActivity::class.java).putExtra("LOCATION_ID_SHOW_MAP", intent.getStringExtra("ACCESSED_LOCATION")))
     }
 
     private fun backToLocationsList() {
