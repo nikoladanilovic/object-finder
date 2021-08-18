@@ -1,13 +1,18 @@
 package hr.ferit.nikoladanilovic.objectfinder.adapter
 
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
+import hr.ferit.nikoladanilovic.objectfinder.LocationsListActivity
 import hr.ferit.nikoladanilovic.objectfinder.LoginActivity
+import hr.ferit.nikoladanilovic.objectfinder.NewLocationActivity
+import hr.ferit.nikoladanilovic.objectfinder.ObjectListOnLocationActivity
 import hr.ferit.nikoladanilovic.objectfinder.databinding.LocationsItemBinding
 import hr.ferit.nikoladanilovic.objectfinder.model.Location
 
@@ -18,13 +23,15 @@ class LocationsListHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val usersRef : CollectionReference = db.collection("Users")
 
+    private lateinit var context: Context
+
     private val TAG = "LocationsListHolder"
 
     fun bind(location: Location){
         val locationsItemBinding = LocationsItemBinding.bind(itemView)
         locationsItemBinding.locationNameTv.text = location.getName()
         locationsItemBinding.deleteImgBtn.setOnClickListener { deleteLocation(location) }
-        locationsItemBinding.enterLocationImgBtn.setOnClickListener { enterSpecificLocationObjectFinder() }
+        locationsItemBinding.enterLocationImgBtn.setOnClickListener { enterSpecificLocationObjectFinder(location) }
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
@@ -32,8 +39,12 @@ class LocationsListHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
 
-    private fun enterSpecificLocationObjectFinder() {
-        TODO("Implement entering object list of specific location")
+    private fun enterSpecificLocationObjectFinder(accessLocation: Location) {
+        context = itemView.context
+        val intentt = Intent(context, ObjectListOnLocationActivity::class.java)
+        intentt.putExtra("ACCESSED_LOCATION", accessLocation.getDocumentId())
+        context.startActivity(intentt)
+        //finish()  //provjeri!!
     }
 
     private fun deleteLocation(deletedLocation: Location) {

@@ -20,8 +20,6 @@ class NewLocationActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
-    //private lateinit var extras: Bundle
-
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val usersRef : CollectionReference = db.collection("Users")
 
@@ -98,6 +96,7 @@ class NewLocationActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+        startActivity(Intent(this, LocationsListActivity::class.java))
         finish()
     }
 

@@ -42,7 +42,7 @@ class MapSetLocationActivity : AppCompatActivity(), GoogleMap.OnMapClickListener
         val intentt = Intent(this, NewLocationActivity::class.java)
         intentt.putExtra("COORDINATES_ID", latLongArray)
         startActivity(intentt)
-        finish()        //PROVJERIII
+        finish()
     }
 
     /**
