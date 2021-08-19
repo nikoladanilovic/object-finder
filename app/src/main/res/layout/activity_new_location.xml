@@ -17,22 +17,12 @@
         android:hint="Location name"
         />
 
-    <EditText
-        android:id="@+id/coordinatesEt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/locNameEt"
-        android:hint="Coordinates"
-        />
-
     <Button
         android:id="@+id/openMapBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="choose location on the map"
-        app:layout_constraintTop_toBottomOf="@id/coordinatesEt"
+        app:layout_constraintTop_toBottomOf="@id/locNameEt"
         app:layout_constraintRight_toRightOf="parent"
         />
 

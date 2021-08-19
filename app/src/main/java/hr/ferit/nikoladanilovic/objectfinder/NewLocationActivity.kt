@@ -1,5 +1,6 @@
 package hr.ferit.nikoladanilovic.objectfinder
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import hr.ferit.nikoladanilovic.objectfinder.databinding.ActivityNewLocationBinding
 import hr.ferit.nikoladanilovic.objectfinder.model.Location
+import java.lang.Exception
 import java.time.Duration
 
 class NewLocationActivity : AppCompatActivity() {
@@ -36,6 +38,22 @@ class NewLocationActivity : AppCompatActivity() {
 
 
         setContentView(binding.root)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        saveData()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loadData()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.locNameEt.setText("")
+        saveData()
     }
 
     private fun openMap() {
@@ -100,6 +118,26 @@ class NewLocationActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun saveData(){
+        val locName = binding.locNameEt.text.toString()
+        binding.locNameEt.setText(locName)
 
+        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply {
+            putString("LOCATION_NAME", locName)
+        }.apply()
+    }
+
+    private fun loadData(){
+        try {
+            val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+            val savedString = sharedPreferences.getString("LOCATION_NAME", "")
+
+            binding.locNameEt.setText(savedString)
+        }catch (e : Exception){
+            binding.locNameEt.setText("")
+        }
+    }
 
 }
