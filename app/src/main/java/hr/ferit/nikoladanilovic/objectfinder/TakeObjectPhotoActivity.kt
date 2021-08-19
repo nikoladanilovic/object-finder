@@ -3,6 +3,7 @@ package hr.ferit.nikoladanilovic.objectfinder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -95,6 +96,12 @@ class TakeObjectPhotoActivity : AppCompatActivity() {
                     /*AFTER TAKING IMAGE CODE*/
                     /**/
                     /**/
+                    val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.apply {
+                        putString("CAPTURED_PHOTO_URI", savedUri.toString())
+                    }.apply()
+
                     startActivity(Intent(baseContext, CreateNewObjectItemActivity::class.java))
                     finish()
                     /**/

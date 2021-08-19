@@ -6,6 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".CreateNewObjectItemActivity">
 
+    <EditText
+        android:id="@+id/objectNameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Object name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/objectDescEt"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:maxLines="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:hint="Object description"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/objectNameEt"
+        android:layout_margin="20dp"
+        />
+
     <Button
         android:id="@+id/captureImageBtn"
         android:layout_width="match_parent"
@@ -13,7 +39,7 @@
         android:layout_margin="20dp"
         android:text="capture photo of an object"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/objectDescEt"
         />
 
     <Button

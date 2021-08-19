@@ -1,5 +1,6 @@
 package hr.ferit.nikoladanilovic.objectfinder
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -53,7 +54,7 @@ class ShowLocationOnMapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun aquireLocationCoordinates() {
-        val locationId = intent.getStringExtra("LOCATION_ID_SHOW_MAP")      //Rjesi za slucaj kada je locationId = null
+        val locationId = loadLocationIdData()      //Rjesi za slucaj kada je locationId = null
 
         //check user is logged in or not
         val firebaseUser = firebaseAuth.currentUser
@@ -64,7 +65,7 @@ class ShowLocationOnMapActivity : AppCompatActivity(), OnMapReadyCallback {
             usersRef.whereEqualTo("email", email).get()
                 .addOnSuccessListener { result ->
                     for (document in result) {
-                        document.reference.collection("location").document(locationId!!).get()
+                        document.reference.collection("location").document(locationId).get()
                             .addOnSuccessListener { documentResult ->
                                 shownLocation = documentResult.toObject(Location::class.java)!!
                             }
@@ -84,6 +85,11 @@ class ShowLocationOnMapActivity : AppCompatActivity(), OnMapReadyCallback {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+    }
+
+    private fun loadLocationIdData(): String {
+        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("ACCESSED_LOCATION_IN_PREFS", "")!!  //provjeri
     }
 
     /**
