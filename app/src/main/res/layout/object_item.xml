@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Object name"
         app:layout_constraintLeft_toRightOf="@id/objectItemIv"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/deleteObjectIv"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="30sp"
         />
@@ -22,6 +22,8 @@
         app:layout_constraintLeft_toRightOf="@id/objectItemIv"
         app:layout_constraintTop_toBottomOf="@id/objectNameTv"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:text="Object description"
         />
 
@@ -29,9 +31,20 @@
         android:id="@+id/objectItemIv"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:contentDescription="Image of specific object in this location"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="20dp"
+        />
 
+    <ImageView
+        android:id="@+id/deleteObjectIv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/xletter"
+        android:contentDescription="Icon for deletion"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
