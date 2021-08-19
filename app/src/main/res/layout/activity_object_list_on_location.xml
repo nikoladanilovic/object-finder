@@ -26,4 +26,24 @@
         android:text="show location on map"
         />
 
+    <Button
+        android:id="@+id/createNewObjectItemBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showLocationOnMapBtn"
+        android:layout_margin="20dp"
+        android:text="create new object item"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/objectListRv"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createNewObjectItemBtn"
+        tools:listitem="@layout/object_item"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

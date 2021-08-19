@@ -22,20 +22,11 @@ import hr.ferit.nikoladanilovic.objectfinder.model.Location
 
 class LocationsListActivity : AppCompatActivity() {
     private val KEY_USER = "email"
-
     private val TAG = "LocationsListActivity"
-
     private var isAlredyInDatabase = false
-
     private var listOfLocations : MutableList<Location> = mutableListOf()
-
-    //ViewBinding
     private lateinit var binding: ActivityLocationsListBinding
-
-    //ActionBar
     private lateinit var actionBar: ActionBar
-
-    //FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
 
     //Firestore database
