@@ -1,5 +1,6 @@
 package hr.ferit.nikoladanilovic.objectfinder.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -48,6 +49,7 @@ class LocationsListHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
         intentt.putExtra("ACCESSED_LOCATION", accessLocation.getDocumentId())
         context.startActivity(intentt)
         //finish()  //provjeri!!
+        (context as Activity).finish()
     }
 
     private fun deleteLocation(deletedLocation: Location) {

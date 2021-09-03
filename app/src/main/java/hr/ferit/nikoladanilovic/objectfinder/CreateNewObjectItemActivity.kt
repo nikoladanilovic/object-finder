@@ -44,6 +44,15 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
         saveDataForEditViews()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.objectNameEt.setText("")
+        binding.objectDescEt.setText("")
+        resetImageUri()
+        saveDataForEditViews()
+    }
+
+
     private fun createNewObject() {
 
         //check user is logged in or not
@@ -55,8 +64,6 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
             val objectDesc = binding.objectDescEt.text.toString()
             val objectImgUri = loadImgUriData()
             val objectLocationId = loadLocationIdData()
-
-            //Log.d(TAG, "createNewObject: Object created: \n email: $email \n objectName: $objectName \n objectDescription: $objectDesc \n Image uri: $objectImgUri \n LocationId: $objectLocationId \n \n \n")
 
             val newObjectData = ObjectOfInterest("", objectName, objectDesc, objectImgUri, objectLocationId)
 
@@ -135,5 +142,14 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
             binding.objectNameEt.setText("")
             binding.objectDescEt.setText("")
         }
+    }
+
+
+    private fun resetImageUri() {
+        val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply {
+            putString("CAPTURED_PHOTO_URI", "")
+        }.apply()
     }
 }

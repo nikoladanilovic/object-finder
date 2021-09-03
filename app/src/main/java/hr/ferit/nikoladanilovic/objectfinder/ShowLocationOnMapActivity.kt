@@ -104,7 +104,8 @@ class ShowLocationOnMapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        val locationId = intent.getStringExtra("LOCATION_ID_SHOW_MAP")      //Rjesi za slucaj kada je locationId = null
+        //val locationId = intent.getStringExtra("LOCATION_ID_SHOW_MAP")      //Rjesi za slucaj kada je locationId = null
+        val locationId = loadLocationIdData()
 
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser != null){
@@ -119,7 +120,7 @@ class ShowLocationOnMapActivity : AppCompatActivity(), OnMapReadyCallback {
                                 shownLocation = documentResult.toObject(Location::class.java)!!
                                 val locationOnMap = LatLng(shownLocation.getLatitude(), shownLocation.getLongitude())
                                 mMap.addMarker(MarkerOptions().position(locationOnMap).title("Location of: ${shownLocation.getName()}"))
-                                mMap.moveCamera(CameraUpdateFactory.newLatLng(locationOnMap))
+                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationOnMap, 15f))
                             }
                     }
                 }

@@ -93,6 +93,11 @@ class ObjectListOnLocationActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        objectItemListener.remove()
+    }
+
     private fun setCurrentLocationIdInSharedPrefs() {
         val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -109,23 +114,6 @@ class ObjectListOnLocationActivity : AppCompatActivity() {
         return sharedPreferences.getString("ACCESSED_LOCATION_IN_PREFS", "")!!  //provjeri
     }
 
-    //placeholder function
-    /*
-    private fun displayData() {
-        var exampleMutableListObj = mutableListOf<ObjectOfInterest>()
-        val exampleObj1 = ObjectOfInterest("", "random ime","random opis","random uri","w4aseraw42d1")
-        val exampleObj2 = ObjectOfInterest("", "random ime2","random opis2","random uri2","w4aseraw42d12")
-        val exampleObj3 = ObjectOfInterest("", "random ime3","random opis3","random uri3","w4aseraw42d13")
-        exampleMutableListObj.add(exampleObj1)
-        exampleMutableListObj.add(exampleObj2)
-        exampleMutableListObj.add(exampleObj3)
-        exampleMutableListObj.add(exampleObj1)
-
-        binding.objectListRv.adapter = ObjectListAdapter(exampleMutableListObj)
-    }
-
-     */
-
     private fun checkUser() {
         //check user is logged in or not
         val firebaseUser = firebaseAuth.currentUser
@@ -137,12 +125,7 @@ class ObjectListOnLocationActivity : AppCompatActivity() {
     }
 
     private fun createNewObjectItem() {
-        /*
-        startActivity(Intent(this, CreateNewObjectItemActivity::class.java)
-            .putExtra("LOCATION_ID_CREATE_OBJECT", intent.getStringExtra("ACCESSED_LOCATION")))
-         */
         startActivity(Intent(this, CreateNewObjectItemActivity::class.java))
-        //Toast.makeText(this,"Not implemented yet.", Toast.LENGTH_SHORT).show()
     }
 
     private fun showLocOnMap() {
