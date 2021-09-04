@@ -5,12 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="12dp"
+    android:background="@color/app_background"
     tools:context=".NewLocationActivity">
 
     <EditText
         android:id="@+id/locNameEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/btn_color_new"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +24,9 @@
         android:id="@+id/openMapBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/btn_color_new"
         android:text="choose location on the map"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/locNameEt"
         app:layout_constraintRight_toRightOf="parent"
         />
@@ -30,10 +35,25 @@
         android:id="@+id/CreateLocBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/items_background_color"
+        android:textColor="@color/btn_color_new"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/openMapBtn"
         android:text="create location"
+        />
+
+    <Button
+        android:id="@+id/goBackToLocationListBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="go back to location list"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/btn_color_red"
+
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

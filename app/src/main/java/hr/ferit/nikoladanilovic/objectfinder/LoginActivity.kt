@@ -14,17 +14,8 @@ import hr.ferit.nikoladanilovic.objectfinder.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
-    //ViewBinding
     private lateinit var loginBinding: ActivityLoginBinding
-
-
-    //ActionBar
-    private lateinit var actionBar: ActionBar
-
-    //ProgressDialog
     private lateinit var progressDialog: ProgressDialog
-
-    //FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
     private var email = ""
     private var password = ""
@@ -33,10 +24,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         loginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(loginBinding.root)
-
-        //configure action bar
-        actionBar = supportActionBar!!
-        actionBar.title = "Login"
 
         //config progress dialog
         progressDialog = ProgressDialog(this)

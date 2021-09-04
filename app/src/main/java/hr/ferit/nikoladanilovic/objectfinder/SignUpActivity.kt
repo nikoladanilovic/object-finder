@@ -14,16 +14,8 @@ import hr.ferit.nikoladanilovic.objectfinder.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
 
-    //ViewBinding
     private lateinit var binding: ActivitySignUpBinding
-
-    //ActionBar
-    private lateinit var actionBar: ActionBar
-
-    //ProgressDialog
     private lateinit var progressDialog: ProgressDialog
-
-    //FirebaseAuth
     private lateinit var firebaseAuth: FirebaseAuth
     private var email = ""
     private var password = ""
@@ -32,12 +24,6 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        //Configure actionbar //enable back button
-        actionBar = supportActionBar!!
-        actionBar.title = "Sign Up"
-        actionBar.setDisplayHomeAsUpEnabled(true)
-        actionBar.setDisplayShowHomeEnabled(true)
 
         //configure progress dialog
         progressDialog = ProgressDialog(this)
@@ -54,8 +40,15 @@ class SignUpActivity : AppCompatActivity() {
             validateData()
         }
 
+        binding.goBackToLoginButton.setOnClickListener {
+            goBackToLogin()
+        }
 
+    }
 
+    private fun goBackToLogin() {
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 
     private fun validateData() {
@@ -107,9 +100,5 @@ class SignUpActivity : AppCompatActivity() {
             }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed() //go back to previous activitym when back button of action bar clicked
-        return super.onSupportNavigateUp()
-    }
 }
 

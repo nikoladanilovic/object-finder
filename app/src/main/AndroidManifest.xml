@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ObjectFinder">
         <activity android:name=".TakeObjectPhotoActivity"></activity>
-        <activity android:name=".CreateNewObjectItemActivity" />
+        <activity
+            android:name=".CreateNewObjectItemActivity"
+            android:windowSoftInputMode="adjustNothing"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -38,7 +40,9 @@
         <activity
             android:name=".MapSetLocationActivity"
             android:label="@string/title_activity_map_set_location" />
-        <activity android:name=".NewLocationActivity" />
+        <activity
+            android:name=".NewLocationActivity"
+            android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".LocationsListActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity">

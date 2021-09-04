@@ -31,6 +31,7 @@ class NewLocationActivity : AppCompatActivity() {
         binding = ActivityNewLocationBinding.inflate(layoutInflater)
         binding.CreateLocBtn.setOnClickListener { addLocation() }
         binding.openMapBtn.setOnClickListener { openMap() }
+        binding.goBackToLocationListBtn.setOnClickListener { goBackToLocationListActivity() }
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
@@ -38,6 +39,11 @@ class NewLocationActivity : AppCompatActivity() {
 
 
         setContentView(binding.root)
+    }
+
+    private fun goBackToLocationListActivity() {
+        startActivity(Intent(this, LocationsListActivity::class.java))
+        finish()
     }
 
     override fun onStop() {

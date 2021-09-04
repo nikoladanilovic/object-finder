@@ -4,47 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     tools:context=".LocationsListActivity">
-
-    <TextView
-        android:id="@+id/loggedInLabelTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="You are logged in as:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:textAlignment="center"
-        />
-
-    <TextView
-        android:id="@+id/emailTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        style="@style/TextAppearance.MaterialComponents.Body1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loggedInLabelTv"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:textAlignment="center"
-        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/locationsRv"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
+        android:layout_height="560dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailTv"
-        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/locations_item"
         xmlns:android="http://schemas.android.com/apk/res/android"
         />
@@ -54,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create new location"
+        android:backgroundTint="@color/btn_color_new"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/locationsRv"
@@ -68,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Logout"
+        android:backgroundTint="@color/btn_color_red"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/newLocationBtn"

@@ -27,11 +27,17 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
 
         binding.captureImageBtn.setOnClickListener { captureImg() }
         binding.createNewObjectBtn.setOnClickListener { createNewObject() }
+        binding.goBackToObjectListBtn.setOnClickListener { goBackToObjectList() }
 
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
         setContentView(binding.root)
+    }
+
+    private fun goBackToObjectList() {
+        startActivity(Intent(this, ObjectListOnLocationActivity::class.java))
+        finish()
     }
 
     override fun onStart() {

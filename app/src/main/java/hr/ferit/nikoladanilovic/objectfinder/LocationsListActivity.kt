@@ -26,7 +26,7 @@ class LocationsListActivity : AppCompatActivity() {
     private var isAlredyInDatabase = false
     private var listOfLocations : MutableList<Location> = mutableListOf()
     private lateinit var binding: ActivityLocationsListBinding
-    private lateinit var actionBar: ActionBar
+    //private lateinit var actionBar: ActionBar
     private lateinit var firebaseAuth: FirebaseAuth
 
     //Firestore database
@@ -45,8 +45,8 @@ class LocationsListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //configure ActionBar
-        actionBar = supportActionBar!!
-        actionBar.title = "Profile"
+        //actionBar = supportActionBar!!
+        //actionBar.title = "Profile"
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
@@ -116,14 +116,7 @@ class LocationsListActivity : AppCompatActivity() {
     private fun checkUser() {
         //check user is logged in or not
         val firebaseUser = firebaseAuth.currentUser
-        if(firebaseUser != null){
-            //user not null, user is logged int
-            val email = firebaseUser.email
-            //set to text view
-            binding.emailTv.text = email
-
-        }
-        else {
+        if(firebaseUser == null){
             //user is null, user is not logged in
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
