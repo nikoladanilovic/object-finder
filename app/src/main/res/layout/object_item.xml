@@ -2,55 +2,55 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="20dp"
-    android:paddingBottom="20dp"
+    android:paddingTop="@dimen/obj_item_view_pad_top"
+    android:paddingBottom="@dimen/obj_item_view_pad_bottom"
     android:background="@color/items_background_color"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/objectNameTv"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/undetermined_dimen_0dp"
         android:layout_height="wrap_content"
-        android:text="Object name"
+        android:text="@string/object_name_tv_obj_item"
         android:textColor="@color/items_light_blue"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/object_name_tv_obj_item_margin_left"
         app:layout_constraintLeft_toRightOf="@id/objectItemIv"
         app:layout_constraintRight_toLeftOf="@id/deleteObjectIv"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="30sp"
+        android:textSize="@dimen/object_name_tv_obj_item_text_size"
         />
 
     <TextView
         android:id="@+id/objectDescTv"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/undetermined_dimen_0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/items_light_blue"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/object_desc_tv_obj_item_margin_left"
         app:layout_constraintLeft_toRightOf="@id/objectItemIv"
         app:layout_constraintTop_toBottomOf="@id/objectNameTv"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:text="Object description"
+        android:layout_marginTop="@dimen/object_desc_tv_obj_item_margin_top"
+        android:layout_marginBottom="@dimen/object_desc_tv_obj_item_margin_bottom"
+        android:text="@string/object_description_tv_obj_item"
         />
 
     <ImageView
         android:id="@+id/objectItemIv"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:contentDescription="Image of specific object in this location"
+        android:layout_width="@dimen/object_item_image_width"
+        android:layout_height="@dimen/object_item_image_height"
+        android:contentDescription="@string/image_of_specific_object_in_this_location"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="@dimen/object_item_image_margin_right"
 
         />
 
     <ImageView
         android:id="@+id/deleteObjectIv"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/delete_obj_item_iv_width"
+        android:layout_height="@dimen/delete_obj_item_iv_height"
         android:src="@drawable/xletter"
-        android:contentDescription="Icon for deletion"
+        android:contentDescription="@string/icon_for_deletion"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />

@@ -13,7 +13,7 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="@dimen/map_set_loc_act_map_height"
         map:layout_constraintTop_toTopOf="parent"
         map:layout_constraintRight_toRightOf="parent"
         tools:context=".MapSetLocationActivity" />
@@ -22,12 +22,12 @@
         android:id="@+id/confirmLocationBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="confirm location"
+        android:text="@string/confirm_location_map_set_location_btn_text"
         app:layout_constraintTop_toBottomOf="@id/map"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginTop="@dimen/commonMargin"
+        android:layout_marginLeft="@dimen/commonMargin"
+        android:layout_marginRight="@dimen/commonMargin"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

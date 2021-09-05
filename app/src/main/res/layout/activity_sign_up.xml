@@ -11,27 +11,26 @@
         android:id="@+id/titleLabelTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="@string/sign_up_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
-        android:textSize="40sp"
+        android:layout_marginTop="@dimen/commonMargin"
+        android:textSize="@dimen/login_header_text_size"
         />
 
     <TextView
         android:id="@+id/captionsLabelTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create a new account!"
+        android:text="@string/create_a_new_account_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleLabelTv"
-        android:layout_marginTop="10dp"
-        android:textSize="15sp"
+        android:layout_marginTop="@dimen/commonMargin10dp"
+        android:textSize="@dimen/login_header2_text_size"
         />
 
-    <!--Email-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTil"
         android:layout_width="match_parent"
@@ -39,9 +38,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/captionsLabelTv"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="@dimen/login_act_header_input_distance"
+        android:layout_marginStart="@dimen/commonMargin"
+        android:layout_marginEnd="@dimen/commonMargin"
         >
 
         <EditText
@@ -49,13 +48,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:hint="Email"
+            android:hint="@string/login_email_input_hint"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <!--Password-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordTil"
         android:layout_width="match_parent"
@@ -64,9 +62,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailTil"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="@dimen/commonMargin"
+        android:layout_marginStart="@dimen/commonMargin"
+        android:layout_marginEnd="@dimen/commonMargin"
         >
 
         <EditText
@@ -74,34 +72,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="Password"
+            android:hint="@string/login_pass_input_hint"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!--Login button-->
     <Button
         android:id="@+id/signUpBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="@string/sign_up_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordTil"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="@dimen/commonMargin"
+        android:layout_marginStart="@dimen/commonMargin"
+        android:layout_marginEnd="@dimen/commonMargin"
         />
 
     <Button
         android:id="@+id/goBackToLoginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Go back to login"
+        android:text="@string/go_back_to_login_btn_text_signup_act"
         android:backgroundTint="@color/btn_color_red"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="@dimen/commonMargin"
+        android:layout_marginEnd="@dimen/commonMargin"
+        android:layout_marginBottom="@dimen/commonMargin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />

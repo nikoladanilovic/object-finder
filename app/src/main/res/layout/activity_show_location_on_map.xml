@@ -13,7 +13,7 @@
         android:id="@+id/map2"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
+        android:layout_height="@dimen/map_set_loc_act_map_height"
         map:layout_constraintTop_toTopOf="parent"
         map:layout_constraintRight_toRightOf="parent"
         tools:context=".ShowLocationOnMapActivity" />
@@ -23,10 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/btn_color_red"
-        android:text="Go back to object list"
+        android:text="@string/go_back_to_object_list_btn_show_loc_on_map_act_text"
         app:layout_constraintTop_toBottomOf="@id/map2"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/commonMargin"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

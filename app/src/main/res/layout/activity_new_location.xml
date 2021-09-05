@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp"
+    android:padding="@dimen/new_loc_act_padding"
     android:background="@color/app_background"
     tools:context=".NewLocationActivity">
 
@@ -13,11 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/btn_color_new"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/commonMargin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="Location name"
+        android:hint="@string/location_name_new_loc_act_et_hint"
         />
 
     <Button
@@ -25,8 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/btn_color_new"
-        android:text="choose location on the map"
-        android:layout_marginTop="20dp"
+        android:text="@string/choose_location_on_map_new_loc_act_text"
+        android:layout_marginTop="@dimen/commonMargin"
         app:layout_constraintTop_toBottomOf="@id/locNameEt"
         app:layout_constraintRight_toRightOf="parent"
         />
@@ -37,21 +37,21 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/items_background_color"
         android:textColor="@color/btn_color_new"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/commonMargin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/openMapBtn"
-        android:text="create location"
+        android:text="@string/create_location_new_loc_act_text"
         />
 
     <Button
         android:id="@+id/goBackToLocationListBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="go back to location list"
+        android:text="@string/go_back_to_location_list_new_loc_act_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="@dimen/commonMargin"
         android:backgroundTint="@color/btn_color_red"
 
         />

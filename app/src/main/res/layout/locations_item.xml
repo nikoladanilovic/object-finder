@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="@dimen/location_item_view_height"
     android:background="@color/items_background_color"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -9,33 +9,33 @@
         android:id="@+id/locationNameTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Location name"
+        android:text="@string/location_name_tv_loc_item_act"
         android:textColor="@color/items_light_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="50dp"
-        android:textSize="30sp"
+        android:layout_marginLeft="@dimen/location_name_tv_item_margin_left"
+        android:layout_marginTop="@dimen/location_name_tv_item_margin_top"
+        android:layout_marginRight="@dimen/location_name_tv_item_margin_right"
+        android:textSize="@dimen/location_name_tv_item_text_size"
         />
 
     <ImageView
         android:id="@+id/deleteImgBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/location_item_delete_btn_width"
+        android:layout_height="@dimen/location_item_delete_btn_height"
         android:src="@drawable/xletter"
-        android:contentDescription="Delete"
+        android:contentDescription="@string/delete_iv_loc_item_act"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
         android:id="@+id/enterLocationImgBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/location_item_enter_btn_width"
+        android:layout_height="@dimen/location_item_enter_btn_height"
         android:src="@drawable/arrowright"
-        android:contentDescription="Enter Location"
+        android:contentDescription="@string/enter_location_iv_loc_item_act"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />

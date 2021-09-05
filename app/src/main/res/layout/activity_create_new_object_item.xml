@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="2dp"
+    android:padding="@dimen/create_new_obj_item_act_padding"
     android:background="@color/app_background"
     tools:context=".CreateNewObjectItemActivity">
 
@@ -12,8 +12,8 @@
         android:id="@+id/objectNameEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Object name"
+        android:layout_margin="@dimen/commonMargin"
+        android:hint="@string/object_name_et_hint"
         android:textColor="@color/btn_color_new"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,18 +30,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
-        android:hint="Object description"
+        android:hint="@string/object_description_et_hint"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/objectNameEt"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/commonMargin"
         />
 
     <Button
         android:id="@+id/captureImageBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="capture photo of an object"
+        android:layout_margin="@dimen/commonMargin"
+        android:text="@string/capture_image_btn_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/objectDescEt"
         />
@@ -50,10 +50,10 @@
         android:id="@+id/createNewObjectBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/commonMargin"
         android:backgroundTint="@color/items_background_color"
         android:textColor="@color/btn_color_new"
-        android:text="create new object"
+        android:text="@string/create_new_object_btn_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/captureImageBtn"
         />
@@ -62,12 +62,12 @@
         android:id="@+id/goBackToObjectListBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="go back to object list"
+        android:text="@string/go_back_to_object_list_btn_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginBottom="@dimen/commonMargin"
+        android:layout_marginLeft="@dimen/commonMargin"
+        android:layout_marginRight="@dimen/commonMargin"
         android:backgroundTint="@color/btn_color_red"
 
         />

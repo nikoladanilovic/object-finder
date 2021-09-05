@@ -35,11 +35,14 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
+    //button for going back into previous activity, that is object list activity
     private fun goBackToObjectList() {
         startActivity(Intent(this, ObjectListOnLocationActivity::class.java))
         finish()
     }
 
+    //manage edit view text data with shared prefs with onStart and onStop methods
+    //so that it doesn't disappear when taking object photo in the other activity
     override fun onStart() {
         super.onStart()
         loadDataForEditViews()
@@ -50,6 +53,8 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
         saveDataForEditViews()
     }
 
+    //when destroying activity, remove any data in shared prefs that hold edit view text
+    //or image uri, so that in any consequent object creation, data must be manually inputed again
     override fun onDestroy() {
         super.onDestroy()
         binding.objectNameEt.setText("")
@@ -73,6 +78,7 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
 
             val newObjectData = ObjectOfInterest("", objectName, objectDesc, objectImgUri, objectLocationId)
 
+            //check if all necessary information is obtained
             if(objectName != "" && objectDesc != "" && objectImgUri != "" && objectLocationId != "") {
                 usersRef.whereEqualTo("email", email).get()
                     .addOnSuccessListener { result ->
@@ -95,20 +101,23 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
-        
+        //if everything was successful, go back to object list activity
         startActivity(Intent(this, ObjectListOnLocationActivity::class.java))
         finish()
     }
 
+    //get location id data from shared preferences
     private fun loadLocationIdData(): String {
         val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         return sharedPreferences.getString("ACCESSED_LOCATION_IN_PREFS", "")!!  //provjeri
     }
 
+    //start activity for capturing object image
     private fun captureImg() {
         startActivity(Intent(this, TakeObjectPhotoActivity::class.java))
     }
 
+    //get image uri data from activity
     private fun loadImgUriData() : String{
         val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         return sharedPreferences.getString("CAPTURED_PHOTO_URI", "")!!  //provjeri
@@ -123,6 +132,8 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
         }
     }
 
+    //saving edit text data in shared prefs for persistence of the text when the photo of
+    //object is being taken in other activity
     private fun saveDataForEditViews(){
         val objectName = binding.objectNameEt.text.toString()
         val objectDesc = binding.objectDescEt.text.toString()
@@ -137,6 +148,9 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
         }.apply()
     }
 
+    //data is loaded and used when the photo of the object is taken, because another acitvity
+    //starts, so when data for edit views is stored in shared prefs it won't disappear when comming
+    //back to acitvity
     private fun loadDataForEditViews(){
         try {
             val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
@@ -150,7 +164,8 @@ class CreateNewObjectItemActivity : AppCompatActivity() {
         }
     }
 
-
+    //if you go out of this activity, erase image uri stored in shared preferences, so that previously
+    //taken photo doesn't influence future object creation
     private fun resetImageUri() {
         val sharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

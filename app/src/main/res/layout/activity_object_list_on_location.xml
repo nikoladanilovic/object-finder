@@ -14,8 +14,8 @@
         android:backgroundTint="@color/btn_color_red"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="20dp"
-        android:text="go back to locations list"
+        android:layout_margin="@dimen/commonMargin"
+        android:text="@string/go_back_to_locations_list_obj_list_act_text"
         />
 
     <Button
@@ -25,8 +25,8 @@
         android:backgroundTint="@color/btn_color_new"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="20dp"
-        android:text="show location on map"
+        android:layout_margin="@dimen/commonMargin"
+        android:text="@string/show_location_on_map_btn_obj_list_act_text"
         />
 
     <Button
@@ -36,19 +36,19 @@
         android:backgroundTint="@color/btn_color_new"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/showLocationOnMapBtn"
-        android:layout_margin="20dp"
-        android:text="create new object item"
+        android:layout_margin="@dimen/commonMargin"
+        android:text="@string/create_new_object_item_btn_obj_list_act_text"
         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/objectListRv"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="@dimen/undetermined_dimen_0dp"
+        android:layout_marginTop="@dimen/commonMargin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/createNewObjectItemBtn"
         app:layout_constraintBottom_toTopOf="@id/backToLocationsListBtn"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="@dimen/commonMargin"
         tools:listitem="@layout/object_item"
         />
 

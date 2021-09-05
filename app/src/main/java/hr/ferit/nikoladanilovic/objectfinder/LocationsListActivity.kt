@@ -44,11 +44,7 @@ class LocationsListActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        //configure ActionBar
-        //actionBar = supportActionBar!!
-        //actionBar.title = "Profile"
-
-        //init firebase auth
+        //initialize firebase authentication
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 

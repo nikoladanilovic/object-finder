@@ -78,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
                 val email = firebaseUser!!.email
                 Toast.makeText(this,"Logged in as $email", Toast.LENGTH_SHORT).show()
 
-                //open user profile
+                //open LocationsList activity with users data
                 startActivity(Intent(this, LocationsListActivity::class.java))
                 finish()
             }
@@ -90,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUser() {
-        //if user is alredy logged in go to profile activity
+        //if user is alredy logged in go to LocationsList activity
         //get current user
         val firebaseUser = firebaseAuth.currentUser
         if(firebaseUser != null){
