@@ -88,7 +88,6 @@ class MapSetLocationActivity : AppCompatActivity(), GoogleMap.OnMapClickListener
         mMap.addMarker(MarkerOptions().position(tappedPlace).title("Location of potential objects"))
     }
 
-    //sve ispod je dodano
 
     @SuppressLint("MissingPermission")
     private fun enableMyLocation() {
@@ -105,14 +104,13 @@ class MapSetLocationActivity : AppCompatActivity(), GoogleMap.OnMapClickListener
     }
 
     override fun onMyLocationButtonClick(): Boolean {
-        //Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show()
         // Return false so that we don't consume the event and the default behavior still occurs
         // (the camera animates to the user's current position).
         return false
     }
 
     override fun onMyLocationClick(location: Location) {
-        //Toast.makeText(this, "Current location:\n$location", Toast.LENGTH_LONG).show()
+
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
